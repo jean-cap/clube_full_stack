@@ -11,3 +11,6 @@
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+modulo_01/vendor
+modulo_01/public/.env
