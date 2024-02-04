@@ -12,7 +12,13 @@
 
 <body>
     <div class="container">
-        <?php require load() ?>
+        <?php
+        try {
+            require load();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+        ?>
     </div>
 
     <script src="assets/js/bootstrap.bundle.min.js"></script>
