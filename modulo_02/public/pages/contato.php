@@ -1,8 +1,6 @@
 <h1>Contato</h1>
 
-<p>
-    Você pode entrar em contato conosco pelo formulário nesta página.
-</p>
+<hr>
 
 <?php echo getFlashMessage('message'); ?>
 
