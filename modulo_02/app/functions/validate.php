@@ -2,18 +2,19 @@
 
 function validate(array $fields)
 {
+    $request = request();
     $validate = [];
 
     foreach ($fields as $field => $type) {
         switch ($type) {
             case 'text':
-                $validate[$field] = filter_var($_POST[$field], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $validate[$field] = filter_var($request[$field], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 break;
             case 'email':
-                $validate[$field] = filter_var($_POST[$field], FILTER_SANITIZE_EMAIL);
+                $validate[$field] = filter_var($request[$field], FILTER_SANITIZE_EMAIL);
                 break;
             default:
-                $validate[$field] = filter_var($_POST[$field], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                $validate[$field] = filter_var($request[$field], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 break;
         }
     }
