@@ -2,11 +2,19 @@
 
 require_once '../../../bootstrap.php';
 
-$validate = validate([
-    'name' => 'text',
-    'email' => 'email',
-    'subject' => 'text',
-    'message' => 'text'
-]);
+if (isEmpty()) {
+    setFlashMessage('message', 'Preencha todos os campos.');
+    header("Location: http://modulo_02.test/?page=contato");
+    die();
 
-dd($validate->message);
+    // return redirect('?page=contato');
+}
+
+// $validate = validate([
+//     'name' => 'text',
+//     'email' => 'email',
+//     'subject' => 'text',
+//     'message' => 'text'
+// ]);
+
+// dd($validate->message);

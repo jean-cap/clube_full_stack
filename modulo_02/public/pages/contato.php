@@ -4,6 +4,8 @@
     Você pode entrar em contato conosco pelo formulário nesta página.
 </p>
 
+<?php echo getFlashMessage('message'); ?>
+
 <form action="pages/forms/contato.php" method="post">
     <div class="mb-3">
         <label for="name" class="form-label">Nome</label>
