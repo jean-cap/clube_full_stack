@@ -8,7 +8,8 @@
             "app/functions/custom.php",
             "app/functions/pages.php",
             "app/functions/flash.php",
-            "app/functions/validate.php"
+            "app/functions/validate.php",
+            "app/functions/email.php"
         ]
     },
     "authors": [
@@ -17,5 +18,7 @@
             "email": "5054292+jean-cap@users.noreply.github.com"
         }
     ],
-    "require": {}
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
+    }
 }

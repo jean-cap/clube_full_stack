@@ -4,17 +4,20 @@ require_once '../../../bootstrap.php';
 
 if (isEmpty()) {
     setFlashMessage('message', 'Preencha todos os campos.');
-    header("Location: http://modulo_02.test/?page=contato");
-    die();
-
-    // return redirect('?page=contato');
+    return redirect('contato');
 }
 
-// $validate = validate([
-//     'name' => 'text',
-//     'email' => 'email',
-//     'subject' => 'text',
-//     'message' => 'text'
-// ]);
+$validate = validate([
+    'name' => 'text',
+    'email' => 'email',
+    'subject' => 'text',
+    'message' => 'text'
+]);
 
-// dd($validate->message);
+if (sendPHPMailer((array)$validate)) {
+    setFlashMessage('message', 'E-mail enviado com sucesso.', 'success');
+} else {
+    setFlashMessage('message', 'Erro no envio do e-mail');
+}
+
+return redirect('contato');
