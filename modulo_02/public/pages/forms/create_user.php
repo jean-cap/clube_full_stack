@@ -4,12 +4,12 @@ require_once '../../../bootstrap.php';
 
 if (isEmpty()) {
     setFlashMessage('message', 'Preencha todos os campos.');
-    return redirect('contato');
+    return redirect('create_user');
 }
 
 $validate = validate([
-    'name' => 'text',
-    'surname' => 'text',
+    'nome' => 'text',
+    'sobrenome' => 'text',
     'email' => 'email',
     'password' => 'text'
 ]);

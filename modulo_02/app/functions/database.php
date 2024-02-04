@@ -9,8 +9,22 @@ function connect()
     return $pdo;
 }
 
-function create()
+function create($table, $fields)
 {
+    $pdo = connect();
+
+    if (!is_array($fields)) {
+        $fields = (array)$fields;
+    }
+
+    $columns = implode(',', array_keys($fields));
+    $preparedColumns = implode(',:', array_keys($fields));
+
+    $sql = "insert into {$table} ({$columns}) values (:{$preparedColumns})";
+
+    $insert = $pdo->prepare($sql);
+
+    return $insert->execute($fields);
 }
 
 function update()

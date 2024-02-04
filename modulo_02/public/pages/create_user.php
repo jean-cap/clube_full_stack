@@ -6,13 +6,13 @@
 
 <form action="pages/forms/create_user.php" method="post">
     <div class="mb-3">
-        <label for="name" class="form-label">Nome</label>
-        <input type="text" class="form-control" id="name" name="name" placeholder="Digite seu nome">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome">
     </div>
 
     <div class="mb-3">
-        <label for="surname" class="form-label">Sobrenome</label>
-        <input type="text" class="form-control" id="surname" name="surname" placeholder="Digite seu sobrenome">
+        <label for="sobrenome" class="form-label">Sobrenome</label>
+        <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Digite seu sobrenome">
     </div>
 
     <div class="mb-3">
