@@ -13,4 +13,5 @@
 *.vsix
 
 modulo_01/vendor
+modulo_02/vendor
 modulo_01/public/.env

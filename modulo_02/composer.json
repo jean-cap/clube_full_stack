@@ -1,0 +1,20 @@
+{
+    "name": "jeanc/modulo_02",
+    "autoload": {
+        "psr-4": {
+            "Jeanc\\Modulo02\\": "src/"
+        },
+        "files" : [
+            "app/functions/custom.php",
+            "app/functions/pages.php",
+            "app/functions/validate.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Jean Carlos",
+            "email": "5054292+jean-cap@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}

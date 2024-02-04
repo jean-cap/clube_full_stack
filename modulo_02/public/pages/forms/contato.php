@@ -1,5 +1,7 @@
 <?php
 
+require_once '../../../bootstrap.php';
+
 // Verifica se o tipo de requisição é a esperada
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $validate = validate([
@@ -8,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'subject' => 'text',
         'message' => 'text'
     ]);
-    print_r($_POST);
+    dd($validate->message);
 } else {
     echo 'Não há nada aqui.';
 }

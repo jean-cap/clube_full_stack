@@ -1,4 +1,7 @@
 <?php
 
 // Arquivo de inicialização do sistema
-require_once 'app/functions/pages.php';
+
+session_start();
+
+require_once 'vendor/autoload.php';
