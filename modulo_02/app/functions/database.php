@@ -27,16 +27,38 @@ function create($table, $fields)
     return $insert->execute($fields);
 }
 
-function update()
+function update($table, $field, $value)
 {
+    $pdo = connect();
+
+    $sql = "update {$table} where {$field} = {$value}";
 }
 
-function find()
+function find($table, $field, $value)
 {
+    $pdo = connect();
+
+    $value = filter_var($value, FILTER_SANITIZE_NUMBER_INT);
+
+    $sql = "select * from {$table} where {$field} = :{$field}";
+
+    $find = $pdo->prepare($sql);
+    $find->bindValue(':id', $value);
+    $find->execute();
+
+    return $find->fetch();
 }
 
-function findAll()
+function all($table)
 {
+    $pdo = connect();
+
+    $sql = "select * from {$table}";
+
+    $list = $pdo->query($sql);
+    $list->execute();
+
+    return $list->fetchAll();
 }
 
 function delete()
