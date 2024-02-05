@@ -60,7 +60,7 @@ function find($table, $field, $value)
     $sql = "select * from {$table} where {$field} = :{$field}";
 
     $find = $pdo->prepare($sql);
-    $find->bindValue(':id', $value);
+    $find->bindValue($field, $value);
     $find->execute();
 
     return $find->fetch();
@@ -78,6 +78,14 @@ function all($table)
     return $list->fetchAll();
 }
 
-function delete()
+function delete($table, $field, $value)
 {
+    $pdo = connect();
+
+    $sql = "delete from {$table} where {$field} = :{$field}";
+
+    $delete = $pdo->prepare($sql);
+    $delete->bindParam($field, $value);
+
+    return $delete->execute();
 }

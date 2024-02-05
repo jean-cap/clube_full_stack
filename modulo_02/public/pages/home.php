@@ -1,5 +1,9 @@
 <h1>Página Inicial</h1>
 
+<?php echo getFlashMessage('message'); ?>
+
+<hr>
+
 <table class="table table-striped table-hover">
     <thead>
         <tr>
