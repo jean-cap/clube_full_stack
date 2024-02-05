@@ -1,0 +1,22 @@
+{
+    "name": "jean-cap/curso-php-pro",
+    "description": "Projeto do curso de PHP Profissional do Clube Full Stack.",
+    "type": "project",
+    "require": {
+        "symfony/var-dumper": "^7.0"
+    },
+    "autoload": {
+        "files": [
+            "app/helpers/constants.php"
+        ],
+        "psr-4": {
+            "JeanCap\\CursoPhpPro\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jean Carlos",
+            "email": "5054292+jean-cap@users.noreply.github.com"
+        }
+    ]
+}
