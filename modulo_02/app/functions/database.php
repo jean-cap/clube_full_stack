@@ -27,11 +27,28 @@ function create($table, $fields)
     return $insert->execute($fields);
 }
 
-function update($table, $field, $value)
+function update($table, $fields, $where)
 {
+    if (!is_array($fields)) {
+        $fields = (array)$fields;
+    }
+
     $pdo = connect();
 
-    $sql = "update {$table} where {$field} = {$value}";
+    $preparedColumns = array_map(function ($field) {
+        return "{$field} = :{$field}";
+    }, array_keys($fields));
+
+    $preparedColumns = implode(', ', $preparedColumns);
+
+    $sql = "update {$table} set {$preparedColumns} where {$where[0]} = :{$where[0]}";
+
+    $data = array_merge($fields, [$where[0] => $where[1]]);
+
+    $update = $pdo->prepare($sql);
+    $update->execute($data);
+
+    return $update->rowCount();
 }
 
 function find($table, $field, $value)

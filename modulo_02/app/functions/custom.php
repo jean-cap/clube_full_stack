@@ -2,7 +2,9 @@
 
 function dd($dump)
 {
+    echo '<pre style="color: #ffffff; background-color: #ff6600; font-size: 16px; font-weight: bold; padding: 20px">';
     var_dump($dump);
+    echo '</pre>';
     die();
 }
 
