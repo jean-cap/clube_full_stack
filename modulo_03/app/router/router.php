@@ -13,16 +13,25 @@ function router()
 
     $matchedUri = exactMatchUriInArrayRoutes($uri, $routes);
 
+    $params = [];
+
     if (empty($matchedUri)) {
         $matchedUri = regularExpressionMatchArrayRoutes($uri, $routes);
+        $uriElements = explode('/', ltrim($uri, '/'));
 
-        $params = getParams($uri, $matchedUri);
-        $formattedParams = formatParams($uri, $params);
-        dump($formattedParams);
+        $params = getParams($uriElements, $matchedUri);
+        $params = formatParams($uriElements, $params);
     }
+
+    if (!empty($matchedUri)) {
+        controller($matchedUri, $params);
+        return;
+    }
+
+    throw new Exception('Algo deu errado.');
 }
 
-function exactMatchUriInArrayRoutes($uri, $routes)
+function exactMatchUriInArrayRoutes(string $uri, array $routes): array
 {
     if (array_key_exists($uri, $routes)) {
         return [$uri => $routes[$uri]];
@@ -31,7 +40,7 @@ function exactMatchUriInArrayRoutes($uri, $routes)
     return [];
 }
 
-function regularExpressionMatchArrayRoutes($uri, $routes)
+function regularExpressionMatchArrayRoutes(string $uri, array $routes): array
 {
     return array_filter($routes, function ($key) use ($uri) {
         $regex = str_replace('/', '\/', ltrim($key, '/'));
@@ -39,27 +48,23 @@ function regularExpressionMatchArrayRoutes($uri, $routes)
     }, ARRAY_FILTER_USE_KEY);
 }
 
-function getParams($uri, $matchedUri)
+function getParams(array $uriElements, array $matchedUri): array
 {
     if (!empty($matchedUri)) {
         $matchedToGetParams = array_keys($matchedUri)[0];
         $matchedToGetParams = explode('/', ltrim($matchedToGetParams, '/'));
 
-        $uriToGetParams = explode('/', ltrim($uri, '/'));
-
-        return array_diff($uriToGetParams, $matchedToGetParams);
+        return array_diff($uriElements, $matchedToGetParams);
     }
 
     return [];
 }
 
-function formatParams($uri, $params)
+function formatParams(array $uriElements, array $params): array
 {
-    $uriArray = explode('/', ltrim($uri, '/'));
-
     $paramsData = [];
     foreach ($params as $index => $param) {
-        $paramsData[$uriArray[$index - 1]] = $param;
+        $paramsData[$uriElements[$index - 1]] = $param;
     }
 
     return $paramsData;

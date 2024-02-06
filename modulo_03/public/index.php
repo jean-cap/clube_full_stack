@@ -2,4 +2,8 @@
 
 require 'bootstrap.php';
 
-router();
+try {
+    router();
+} catch (Exception $e) {
+    dump($e->getMessage());
+}
