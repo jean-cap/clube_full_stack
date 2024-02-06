@@ -15,9 +15,9 @@ function router()
 
     if (empty($matchedUri)) {
         $matchedUri = regularExpressionMatchArrayRoutes($uri, $routes);
-    }
 
-    dump($matchedUri);
+        $params = getParams($uri, $matchedUri);
+    }
 }
 
 function exactMatchUriInArrayRoutes($uri, $routes)
@@ -35,4 +35,18 @@ function regularExpressionMatchArrayRoutes($uri, $routes)
         $regex = str_replace('/', '\/', ltrim($key, '/'));
         return preg_match("/^$regex$/", ltrim($uri, '/'));
     }, ARRAY_FILTER_USE_KEY);
+}
+
+function getParams($uri, $matchedUri)
+{
+    if (!empty($matchedUri)) {
+        $matchedToGetParams = array_keys($matchedUri)[0];
+        $matchedToGetParams = explode('/', ltrim($matchedToGetParams, '/'));
+
+        $uriToGetParams = explode('/', ltrim($uri, '/'));
+
+        return array_diff($uriToGetParams, $matchedToGetParams);
+    }
+
+    return [];
 }
