@@ -2,4 +2,4 @@
 
 require 'bootstrap.php';
 
-dump();
+router();
