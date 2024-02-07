@@ -8,8 +8,9 @@ function routes(): array
 function router()
 {
     $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    $requestMethod = $_SERVER['REQUEST_METHOD'];
 
-    $routes = routes();
+    $routes = routes()[$requestMethod];
 
     $matchedUri = exactMatchUriInArrayRoutes($uri, $routes);
 
