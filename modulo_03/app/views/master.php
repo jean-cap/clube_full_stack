@@ -9,9 +9,9 @@
 
     <title><?php echo $title; ?></title>
 
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/sticky-footer-navbar.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/sticky-footer-navbar.css">
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -60,7 +60,7 @@
         </div>
     </footer>
 
-    <script src="assets/js/bootstrap.bundle.js"></script>
+    <script src="/assets/js/bootstrap.bundle.js"></script>
 </body>
 
 </html>

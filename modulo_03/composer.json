@@ -7,12 +7,15 @@
     },
     "autoload": {
         "files": [
-            "app/helpers/constants.php",
-            "app/router/router.php",
-            "app/core/controller.php"
+            "App/Helpers/Constants.php",
+            "App/Helpers/Redirect.php",
+            "App/Router/Router.php",
+            "App/Core/Controller.php",
+            "App/Database/Connect.php",
+            "App/Database/Fetch.php"
         ],
         "psr-4": {
-            "JeanCap\\CursoPhpPro\\": "app/"
+            "JeanCap\\CursoPhpPro\\": "App/"
         }
     },
     "authors": [

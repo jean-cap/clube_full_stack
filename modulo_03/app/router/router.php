@@ -2,7 +2,7 @@
 
 function routes(): array
 {
-    return require 'routes.php';
+    return require 'Routes.php';
 }
 
 function router()
