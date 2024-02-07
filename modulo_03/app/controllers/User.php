@@ -10,6 +10,5 @@ class User
 
     public function show($params)
     {
-        dump($params);
     }
 }

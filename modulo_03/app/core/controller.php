@@ -16,5 +16,5 @@ function controller(array $matchedUri, array $params)
         throw new Exception("O médoto {$method} não existe no controller {$controller}.");
     }
 
-    $controllerInstance->$method($params);
+    return $controllerInstance->$method($params);
 }

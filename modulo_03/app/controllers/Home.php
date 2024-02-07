@@ -6,6 +6,9 @@ class Home
 {
     public function index($params)
     {
-        dump($params);
+        return [
+            'view' => 'home',
+            'data' => ['title' => 'Curso PHP Profissional']
+        ];
     }
 }
