@@ -12,9 +12,6 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="/user/create">Cadastrar</a>
                     </li>
                     <li class="nav-item">
@@ -26,7 +23,13 @@
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
                 <div class="d-flex">
-                    <button type="button" class="btn btn-outline-light ms-2">Login</button>
+                    <?php if (logged()) : ?>
+                        <span class="navbar-text ms-2">
+                            Olá <?= user()->nome ?>! | <a href="/logout">Sair</a>
+                        </span>
+                    <?php else : ?>
+                        <a class="btn btn-outline-info ms-2" href="/login" role="button">Login</a>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

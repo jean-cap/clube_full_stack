@@ -9,6 +9,8 @@
         "files": [
             "App/Helpers/Constants.php",
             "App/Helpers/Redirect.php",
+            "App/Helpers/Flash.php",
+            "App/Helpers/Sessions.php",
             "App/Router/Router.php",
             "App/Core/Controller.php",
             "App/Database/Connect.php",
