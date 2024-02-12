@@ -44,12 +44,14 @@ class User
         $validate = validate([
             'nome' => 'required',
             'sobrenome' => 'required',
-            'email' => 'email|unique',
-            'password' => 'required|maxlen'
+            'email' => 'email|unique:users',
+            'password' => 'required|maxlen:10'
         ]);
 
         if (!$validate) {
             return redirect('/user/create');
         }
+
+        return dump($validate);
     }
 }
