@@ -11,6 +11,7 @@
             "App/Helpers/Redirect.php",
             "App/Helpers/Flash.php",
             "App/Helpers/Sessions.php",
+            "App/Helpers/Validate.php",
             "App/Router/Router.php",
             "App/Core/Controller.php",
             "App/Database/Connect.php",

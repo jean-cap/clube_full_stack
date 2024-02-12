@@ -28,4 +28,28 @@ class User
             ]
         ];
     }
+
+    public function create($params): array
+    {
+        return [
+            'view' => 'UserCreate',
+            'data' => [
+                'title' => 'Cadastrar Usuários'
+            ]
+        ];
+    }
+
+    public function store()
+    {
+        $validate = validate([
+            'nome' => 'required',
+            'sobrenome' => 'required',
+            'email' => 'email|unique',
+            'password' => 'required|maxlen'
+        ]);
+
+        if (!$validate) {
+            return redirect('/user/create');
+        }
+    }
 }
