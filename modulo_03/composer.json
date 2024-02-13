@@ -22,7 +22,8 @@
             "App/Database/Connect.php",
             "App/Database/Fetch.php",
             "App/Database/Create.php",
-            "App/Database/Update.php"
+            "App/Database/Update.php",
+            "App/Database/Delete.php"
         ],
         "psr-4": {
             "JeanCap\\CursoPhpPro\\": "App/"
