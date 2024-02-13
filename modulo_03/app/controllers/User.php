@@ -4,7 +4,7 @@ namespace JeanCap\CursoPhpPro\Controllers;
 
 class User
 {
-    public function index($params)
+    public function index($params): array
     {
         return [
             'view' => 'User',
@@ -12,11 +12,11 @@ class User
         ];
     }
 
-    public function show($params)
+    public function show($params): ?array
     {
         if (!isset($params['user'])) {
             return redirect('/');
-        };
+        }
 
         $user = findBy('users', 'id', $params['user']);
 

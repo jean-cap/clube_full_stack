@@ -13,6 +13,7 @@
             "App/Helpers/Flash.php",
             "App/Helpers/Sessions.php",
             "App/Helpers/Validate.php",
+            "App/Helpers/Validations.php",
             "App/Helpers/Strings.php",
             "App/Router/Router.php",
             "App/Core/Controller.php",
