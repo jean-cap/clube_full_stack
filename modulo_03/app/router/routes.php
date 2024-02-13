@@ -3,7 +3,8 @@
 return [
     'POST' => [
         '/login' => 'Login@store',
-        '/user/store' => 'User@store'
+        '/user/store' => 'User@store',
+        '/user/update' => 'User@update'
     ],
     'GET' => [
         '/' => 'Home@index',

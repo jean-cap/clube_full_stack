@@ -64,4 +64,16 @@ class User
         setFlash('message', 'Usuário cadastrado com sucesso');
         return redirect('/');
     }
+
+    public function update()
+    {
+        $arr = [
+            'nome' => 'Carine',
+            'sobrenome' => 'Pereira',
+            'email' => 'carine@gmail.com',
+            'password' => '$2y$10$acvc84CyEZ/n6aSD8TPVJuilGZKMTNTg6Q8gfENVg5XuIQymRcoha'
+        ];
+
+        dbUpdate('users', $arr, ['id' => '5']);
+    }
 }
