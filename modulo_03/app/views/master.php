@@ -30,6 +30,15 @@
 <?= $this->insert('Partials/Footer') ?>
 
 <script src="/assets/js/bootstrap.bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+    axios.defaults.headers.common['HTTP_X_REQUESTED_WITH'] = 'XMLHttpRequest';
+    axios.defaults.headers.common['Content-Type'] = 'application/json';
+</script>
+
+<?= $this->section('scripts') ?>
+
 </body>
 
 </html>

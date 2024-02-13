@@ -4,7 +4,10 @@ require 'bootstrap.php';
 
 try {
     $data = router();
-    $viewFileName = VIEWS . $data['view'] . '.php';
+
+    if (isAjax()) {
+        die();
+    }
 
     if (!isset($data['data'])) {
         throw new Exception('O índice data está faltando.');
@@ -17,6 +20,8 @@ try {
     if (!isset($data['view'])) {
         throw new Exception('A view não foi configurada.');
     }
+
+    $viewFileName = VIEWS . $data['view'] . '.php';
 
     if (!file_exists($viewFileName)) {
         throw new Exception("O arquivo da view {$data['view']} não existe.");
