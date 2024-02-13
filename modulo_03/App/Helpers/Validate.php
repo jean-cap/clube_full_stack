@@ -1,6 +1,6 @@
 <?php
 
-function validate(array $validations)
+function validate(array $validations): false|array
 {
     $result = [];
     $param = '';
@@ -30,7 +30,7 @@ function singleValidation($validate, $field, $param)
 
 function multipleValidation($validate, $field, $param)
 {
-    $result = '';
+    $result = [];
     $explodePipeValidate = explode('|', $validate);
 
     foreach ($explodePipeValidate as $validate) {
@@ -38,8 +38,12 @@ function multipleValidation($validate, $field, $param)
             [$validate, $param] = explode(':', $validate);
         }
 
-        $result = $validate($field, $param);
+        $result[$field] = $validate($field, $param);
+
+        if (isset($result[$field]) && $result[$field] === false) {
+            break;
+        }
     }
 
-    return $result;
+    return $result[$field];
 }
