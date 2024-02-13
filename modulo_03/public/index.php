@@ -22,9 +22,11 @@ try {
         throw new Exception("O arquivo da view {$data['view']} não existe.");
     }
 
-    extract($data['data']);
+    // Create new Plates instance
+    $templates = new League\Plates\Engine(VIEWS);
 
-    require_once VIEWS . 'master.php';
+    // Render a template
+    echo $templates->render($data['view'], $data['data']);
 } catch (Exception $e) {
     dump($e->getMessage());
 }

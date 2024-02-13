@@ -1,4 +1,5 @@
-<div class="card"">
+<?php $this->layout('Master', ['title' => $title]) ?>
+<div class="card">
     <div class=" card-body">
         <h5 class="card-title"><?php echo $user->nome; ?></h5>
         <b>ID:</b> <?php echo $user->id; ?> <br>

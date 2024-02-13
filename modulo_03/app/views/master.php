@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Jean Carlos">
 
-    <title><?php echo $title; ?></title>
+    <title><?= $this->e($title) ?></title>
 
     <link rel="stylesheet" href="/assets/css/bootstrap.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
@@ -15,21 +15,21 @@
 </head>
 
 <body class="d-flex flex-column h-100">
-    <?php require 'Partials/Header.php' ?>
+<?= $this->insert('Partials/Header') ?>
 
-    <main class="flex-shrink-0">
+<main class="flex-shrink-0">
+    <div class="container">
+        <h1><?= $this->e($title) ?></h1>
+
         <div class="container">
-            <h1><?php echo $title; ?></h1>
-
-            <div class="container">
-                <?php require_once $viewFileName; ?>
-            </div>
+            <?= $this->section('content') ?>
         </div>
-    </main>
+    </div>
+</main>
 
-    <?php require 'Partials/Footer.php' ?>
+<?= $this->insert('Partials/Footer') ?>
 
-    <script src="/assets/js/bootstrap.bundle.js"></script>
+<script src="/assets/js/bootstrap.bundle.js"></script>
 </body>
 
 </html>

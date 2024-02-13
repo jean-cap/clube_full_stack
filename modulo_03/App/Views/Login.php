@@ -1,4 +1,8 @@
-<?php echo getFlash('message'); ?>
+<?php
+$this->layout('Master', ['title' => $title]);
+
+echo getFlash('message');
+?>
 
 <?php if (!logged()) : ?>
     <div class="form-signin w-100 m-auto">
@@ -15,5 +19,5 @@
         </form>
     </div>
 <?php else : ?>
-<p>Você já está logado! <a href="/">Ir para a página inicial</a></p>
+    <p>Você já está logado! <a href="/">Ir para a página inicial</a></p>
 <?php endif; ?>

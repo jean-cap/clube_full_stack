@@ -1,4 +1,6 @@
 <?php
+$this->layout('Master', ['title' => $title]);
+
 echo getFlash('nome');
 echo getFlash('sobrenome');
 echo getFlash('email');
