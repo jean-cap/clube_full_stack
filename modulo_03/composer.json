@@ -9,6 +9,7 @@
     },
     "autoload": {
         "files": [
+            "App/Helpers/Helpers.php",
             "App/Helpers/Constants.php",
             "App/Helpers/Redirect.php",
             "App/Helpers/Flash.php",
