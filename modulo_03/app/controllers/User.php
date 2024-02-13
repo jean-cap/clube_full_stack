@@ -52,6 +52,16 @@ class User
             return redirect('/user/create');
         }
 
-        return dump($validate);
+        $validate['password'] = password_hash($validate['password'], PASSWORD_DEFAULT);
+
+        $inserted = dbCreate('users', $validate);
+
+        if (!$inserted) {
+            setFlash('message', 'Ocorreu um erro ao cadastrar, tente novamente em alguns minutos.');
+            return redirect('/user/create');
+        }
+
+        setFlash('message', 'Usuário cadastrado com sucesso');
+        return redirect('/');
     }
 }

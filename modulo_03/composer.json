@@ -3,7 +3,8 @@
     "description": "Projeto do curso de PHP Profissional do Clube Full Stack.",
     "type": "project",
     "require": {
-        "symfony/var-dumper": "^7.0"
+        "symfony/var-dumper": "^7.0",
+        "ext-pdo": "*"
     },
     "autoload": {
         "files": [
@@ -16,7 +17,8 @@
             "App/Router/Router.php",
             "App/Core/Controller.php",
             "App/Database/Connect.php",
-            "App/Database/Fetch.php"
+            "App/Database/Fetch.php",
+            "App/Database/Create.php"
         ],
         "psr-4": {
             "JeanCap\\CursoPhpPro\\": "App/"

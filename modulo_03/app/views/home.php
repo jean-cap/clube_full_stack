@@ -1,5 +1,7 @@
 <p>Lista de usuários cadastrados</p>
 
+<?php echo getFlash('message', 'success') ?>
+
 <table class="table">
     <thead>
         <tr>
