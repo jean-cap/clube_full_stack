@@ -20,10 +20,7 @@
 <main class="flex-shrink-0">
     <div class="container">
         <h1><?= $this->e($title) ?></h1>
-
-        <div class="container">
-            <?= $this->section('content') ?>
-        </div>
+        <?= $this->section('content') ?>
     </div>
 </main>
 
