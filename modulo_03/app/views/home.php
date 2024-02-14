@@ -30,16 +30,7 @@
 <?php $this->start('scripts') ?>
 
     <script>
-        async function loadUsers() {
-            try {
-                const {data} = await axios.get('/users');
-                console.log(data);
-            } catch (error) {
-                console.log(error);
-            }
-        }
 
-        loadUsers();
     </script>
 
 <?php $this->stop() ?>
