@@ -13,6 +13,7 @@
             "App/Helpers/Constants.php",
             "App/Helpers/Redirect.php",
             "App/Helpers/Flash.php",
+            "App/Helpers/Old.php",
             "App/Helpers/Sessions.php",
             "App/Helpers/Validate.php",
             "App/Helpers/Validations.php",
