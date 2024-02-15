@@ -46,7 +46,7 @@ class User
             'sobrenome' => 'required',
             'email' => 'email|unique:users',
             'password' => 'required|maxlen:10'
-        ], persistInputs: true);
+        ], persistInputs: true, checkCsrf: true);
 
         if (!$validate) {
             return redirect('/user/create');

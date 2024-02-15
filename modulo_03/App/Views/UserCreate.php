@@ -8,6 +8,9 @@ echo getFlash('password');
 ?>
 
 <form action="/user/store" method="post">
+
+    <?php echo getCsrf(); ?>
+
     <div class="mb-3">
         <label for="nome" class="form-label">Nome</label>
         <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome"
